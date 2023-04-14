@@ -30,7 +30,7 @@ const register = async (req, res) => {
 const getMyProfile = async (req, res) => {
     let tournaments
     try {
-         tournaments = await User.findOne({ _id: req.body.id }).populate("participated_tournaments.Tournament")
+        tournaments = await User.findOne({ _id: req.body.id }).populate("tournaments_Hosted").populate("participated_tournaments")
     } catch (error) {
         console.log(error)
         return
@@ -54,4 +54,4 @@ const verifyUser = async (req, res) => {
         }
     }
 }
-module.exports = { login, register,getMyProfile, verifyUser }
+module.exports = { login, register, getMyProfile, verifyUser }

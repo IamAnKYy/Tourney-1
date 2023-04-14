@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId , 
         ref: "Tournament"
 }],
-    tournamentHosted:[{ 
+    tournaments_Hosted:[{ 
         type: mongoose.Schema.Types.ObjectId , 
         ref: "Tournament"
     }

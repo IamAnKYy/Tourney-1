@@ -13,7 +13,7 @@ const createTournament = async (req, res) => {
     try {
        await User.findOneAndUpdate(
             { _id: req.body.tournamentModel.organiser_name },
-            { "$push": { "tournamentHosted":tournament._id } },
+            { "$push": { "tournamentHosted":tournament } },
         )
     } catch (error) {
         console.log(error)
@@ -77,7 +77,7 @@ const tournamentRegistration = async (req, res) => {
             try {
                 await User.findOneAndUpdate(
                     { _id: req.body.team_details.team[member] },
-                    { "$push": { "participated_tournaments": req.body.id } },
+                    { "$push": { "participated_tournaments": tournament } },
                 )
             } catch (error) {
                 console.log(error)
